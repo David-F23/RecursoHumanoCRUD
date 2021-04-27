@@ -107,12 +107,18 @@ public class ConexionCRUD {
             }
             
             stmt = cone.createStatement();
-            stmt.executeUpdate(sqlQueryStmt);
+            stmt.executeQuery(sqlQueryStmt);
             
-        }finally{
+            try(ResultSet miResultSet = stmt.executeQuery(sqlQueryStmt)){
+                
+                if(miResultSet.next()){
+                    
+                    ResultSetMetaData metaData = miResultSet.getMetaData();
+                    int numColumnas = metaData.getColumnCount();
+                    
+                }
+            }
             
-            stmt.close();
-            cone.close();
         }
     }
 }
