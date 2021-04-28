@@ -37,7 +37,7 @@ public class ConexionCRUD {
         Connection cone = conectar.getConnection();
         
         try{
-            String sqlQueryStmt = "INSERT INTO " + tabla + " ("+ camposTabla +" ) VALUES (" + valoresCampos + ");";
+            String sqlQueryStmt = "INSERT INTO " + tabla + " ("+ camposTabla +") VALUES (" + valoresCampos + ");";
             
             Statement stmt;
             stmt = cone.createStatement();
