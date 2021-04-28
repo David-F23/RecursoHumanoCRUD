@@ -115,10 +115,39 @@ public class ConexionCRUD {
                     
                     ResultSetMetaData metaData = miResultSet.getMetaData();
                     int numColumnas = metaData.getColumnCount();
+                    System.out.println("<< REGISTROS ALMACENADOS >>");
+                    System.out.println();
                     
+                    for(int i = 1; i <= numColumnas; i++){
+                        
+                        System.out.println("%-20s\t", metaData.getColumnName(i));
+                    }
+                    System.out.println();
+                    
+                    do{
+                        for(int i = 1; i <= numColumnas; i++){
+                            
+                            System.out.println("%-20s\t", miResultSet.getObject(i));
+                        }
+                        System.out.println();
+                    }while(miResultSet.next());
+                    System.out.println();
+                }else{
+                    
+                    System.out.println("No se han encontrado Registros");
                 }
+                
+                miResultSet.close();
+                
+            }finally{
+                
+                stmt.close();
+                cone.close();
             }
             
+        }catch(SQLException ex){
+            
+            System.out.println("Ha ocurrido el siguiente error: " + ex.getMessage());
         }
     }
 }
