@@ -115,19 +115,19 @@ public class ConexionCRUD {
                     
                     ResultSetMetaData metaData = miResultSet.getMetaData();
                     int numColumnas = metaData.getColumnCount();
-                    System.out.println("<< REGISTROS ALMACENADOS >>");
+                    System.out.print("<< REGISTROS ALMACENADOS >>");
                     System.out.println();
                     
                     for(int i = 1; i <= numColumnas; i++){
                         
-                        System.out.println("%-20s\t", metaData.getColumnName(i));
+                        System.out.printf("%-20s\t", metaData.getColumnName(i));
                     }
                     System.out.println();
                     
                     do{
                         for(int i = 1; i <= numColumnas; i++){
                             
-                            System.out.println("%-20s\t", miResultSet.getObject(i));
+                            System.out.printf("%-20s\t", miResultSet.getObject(i));
                         }
                         System.out.println();
                     }while(miResultSet.next());
