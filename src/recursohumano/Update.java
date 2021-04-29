@@ -22,13 +22,13 @@ public class Update {
         utilerias.desplegarRegistros(tablaBuscar, camposBuscar, condicionBuscar);
         
         System.out.println("Nombre: ");
-        person.setNomPersona(leer.nextLine());
+        person.setNomPersona(leer.next());
         
         System.out.println("Correo Electrónico: ");
-        person.setEmailPersona(leer.nextLine());
+        person.setEmailPersona(leer.next());
         
         System.out.println("Teléfono: ");
-        person.setTelPersona(leer.nextLine());
+        person.setTelPersona(leer.next());
         
         String tabla = "tb_contacto";
         String camposValoresNuevos = "nom_contacto = '" + person.getNomPersona() + "', email_contacto = '" + person.getEmailPersona() + "', tel_contacto = '" + person.getTelPersona() + "'";
